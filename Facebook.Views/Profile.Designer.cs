@@ -51,6 +51,9 @@ namespace Facebook.Views
             this.cityCountryTextBox = new System.Windows.Forms.TextBox();
             this.workplaceTextBox = new System.Windows.Forms.TextBox();
             this.userPostsListView = new System.Windows.Forms.ListView();
+            this.editButton = new System.Windows.Forms.Button();
+            this.logOutButton = new System.Windows.Forms.Button();
+            this.newPostButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.facebookHomePageLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsIconImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsIconImage)).BeginInit();
@@ -184,14 +187,18 @@ namespace Facebook.Views
             this.coverPhotoImage.Size = new System.Drawing.Size(609, 150);
             this.coverPhotoImage.TabIndex = 16;
             this.coverPhotoImage.TabStop = false;
+            this.coverPhotoImage.Click += new System.EventHandler(this.coverPhotoImage_Click);
             // 
             // profilePictureImage
             // 
             this.profilePictureImage.Location = new System.Drawing.Point(334, 238);
+            this.profilePictureImage.MaximumSize = new System.Drawing.Size(100, 100);
+            this.profilePictureImage.MinimumSize = new System.Drawing.Size(100, 100);
             this.profilePictureImage.Name = "profilePictureImage";
             this.profilePictureImage.Size = new System.Drawing.Size(100, 100);
             this.profilePictureImage.TabIndex = 17;
             this.profilePictureImage.TabStop = false;
+            this.profilePictureImage.Click += new System.EventHandler(this.profilePictureImage_Click);
             // 
             // nameTextBox
             // 
@@ -199,7 +206,7 @@ namespace Facebook.Views
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(184, 27);
             this.nameTextBox.TabIndex = 18;
-            this.nameTextBox.Text = "Forename Last name";
+            this.nameTextBox.Text = "First name Last name";
             this.nameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // descriptionTextBox
@@ -226,7 +233,6 @@ namespace Facebook.Views
             this.statusTextBox.Size = new System.Drawing.Size(117, 27);
             this.statusTextBox.TabIndex = 21;
             this.statusTextBox.Text = "Status";
-            this.statusTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // hobbiesTextBox
             // 
@@ -235,7 +241,6 @@ namespace Facebook.Views
             this.hobbiesTextBox.Size = new System.Drawing.Size(117, 27);
             this.hobbiesTextBox.TabIndex = 22;
             this.hobbiesTextBox.Text = "Hobbies";
-            this.hobbiesTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // cityCountryTextBox
             // 
@@ -256,18 +261,60 @@ namespace Facebook.Views
             // userPostsListView
             // 
             this.userPostsListView.HideSelection = false;
-            this.userPostsListView.Location = new System.Drawing.Point(58, 451);
+            this.userPostsListView.Location = new System.Drawing.Point(58, 445);
             this.userPostsListView.Name = "userPostsListView";
             this.userPostsListView.Size = new System.Drawing.Size(672, 260);
             this.userPostsListView.TabIndex = 25;
             this.userPostsListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // editButton
+            // 
+            this.editButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.editButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.000003F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.editButton.ForeColor = System.Drawing.Color.White;
+            this.editButton.Location = new System.Drawing.Point(206, 410);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(94, 29);
+            this.editButton.TabIndex = 26;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.logOutButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.000003F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.logOutButton.ForeColor = System.Drawing.Color.White;
+            this.logOutButton.Location = new System.Drawing.Point(475, 410);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(94, 29);
+            this.logOutButton.TabIndex = 27;
+            this.logOutButton.Text = "Log out";
+            this.logOutButton.UseVisualStyleBackColor = false;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
+            // newPostButton
+            // 
+            this.newPostButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.newPostButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.000003F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.newPostButton.ForeColor = System.Drawing.Color.White;
+            this.newPostButton.Location = new System.Drawing.Point(340, 410);
+            this.newPostButton.Name = "newPostButton";
+            this.newPostButton.Size = new System.Drawing.Size(94, 29);
+            this.newPostButton.TabIndex = 28;
+            this.newPostButton.Text = "New post";
+            this.newPostButton.UseVisualStyleBackColor = false;
+            this.newPostButton.Click += new System.EventHandler(this.newPostButton_Click);
             // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 723);
+            this.ClientSize = new System.Drawing.Size(800, 776);
+            this.Controls.Add(this.newPostButton);
+            this.Controls.Add(this.logOutButton);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.userPostsListView);
             this.Controls.Add(this.workplaceTextBox);
             this.Controls.Add(this.cityCountryTextBox);
@@ -290,10 +337,11 @@ namespace Facebook.Views
             this.Controls.Add(this.searchBoxHomePage);
             this.Controls.Add(this.facebookHomePageLogo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(818, 770);
-            this.MinimumSize = new System.Drawing.Size(818, 770);
+            this.MaximumSize = new System.Drawing.Size(818, 823);
+            this.MinimumSize = new System.Drawing.Size(818, 823);
             this.Name = "Profile";
             this.Text = "Profile";
+            this.Load += new System.EventHandler(this.Profile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.facebookHomePageLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsIconImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsIconImage)).EndInit();
@@ -329,5 +377,8 @@ namespace Facebook.Views
         private System.Windows.Forms.TextBox cityCountryTextBox;
         private System.Windows.Forms.TextBox workplaceTextBox;
         private System.Windows.Forms.ListView userPostsListView;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button logOutButton;
+        private System.Windows.Forms.Button newPostButton;
     }
 }

@@ -1,48 +1,60 @@
-﻿using Facebook.Views.Utils;
+﻿using Facebook.Services;
+using Facebook.Services.DAO;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Facebook.Views
 {
     public partial class Login : Form
     {
+        private HomeDAO homeDAO;
         public Login()
         {
             InitializeComponent();
+            FacebookDBContext context = new FacebookDBContext();
+            this.homeDAO = new HomeDAO(context);
+            emailLoginTextBox.Text = "";
+            passwordLoginTextBox.Text = "";
         }
 
-        private void facebookLoginPictureBox_Click(object sender, EventArgs e)
+        public void CheckIfUserIsNull(string emailOrPhoneNumber, string password)
         {
-
+            var result = this.homeDAO.Login(emailOrPhoneNumber, password);
+            if (result != null)
+            {
+                Login.ActiveForm.Hide();
+                HomePage homePage = new HomePage();
+                homePage.Activate();
+                homePage.Show();
+            }
+            else
+            {
+                errorLabel.Visible = true;
+                emailLoginTextBox.Text = "";
+                passwordLoginTextBox.Text = "";
+            }
         }
 
         private void entranceButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string emailOrPhoneNumber = this.emailLoginTextBox.Text;
-                string password = this.passwordLoginTextBox.Text;
+            string emailOrPhoneNumber = emailLoginTextBox.Text, password = passwordLoginTextBox.Text;
 
-                //int userId = this.homeController.Login(username, HashPassword(password));
-
-                var homePage = FormFactory.GetFormInstance<HomePage>();
-                homePage.Show();
-
-                this.Hide();
-            }
-            catch (Exception error)
-            {
-                this.errorLabel.Visible = true;
-                this.errorLabel.Text = error.Message;
-            }
+            CheckIfUserIsNull(emailOrPhoneNumber, password);
         }
 
         private void newAccountButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Login.ActiveForm.Close();
 
-            var registration = FormFactory.GetFormInstance<Registration>();
+            Registration registration = new Registration();
+            registration.Activate();
             registration.Show();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            Location = new Point(600, 250);
         }
     }
 }

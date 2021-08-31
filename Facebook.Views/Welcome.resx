@@ -57,7 +57,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=4.0.2.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+  <assembly alias="System.Drawing.Common" name="System.Drawing.Common, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
   <data name="facebookPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/4gIoSUNDX1BST0ZJTEUAAQEAAAIYAAAAAAIQAABtbnRyUkdCIFhZ
@@ -143,7 +143,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAIAAABnsVYUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAINBJREFUeF7t2EENACAMADG0YWb+phAT3K9JVfTcWQAAAAAA+E5AAwAAAACQENAA
+        vwAADr8BOAVTJAAAINBJREFUeF7t2EENACAMADG0YWb+phAT3K9JVfTcWQAAAAAA+E5AAwAAAACQENAA
         AAAAACQENAAAAAAACQENAAAAAEBCQAMAAAAAkBDQAAAAAAAkBDQAAAAAAAkBDQAAAABAQkADAAAAAJAQ
         0AAAAAAAJAQ0AAAAAAAJAQ0AAAAAQEJAAwAAAACQENAAAAAAACQENAAAAAAACQENAAAAAEBCQAMAAAAA
         kBDQAAAAAAAkBDQAAAAAAAkBDQAAAABAQkADAAAAAJAQ0AAAAAAAJAQ0AAAAAAAJAQ0AAAAAQEJAAwAA

@@ -101,6 +101,7 @@ namespace Facebook.Views
             this.MinimumSize = new System.Drawing.Size(646, 509);
             this.Name = "Welcome";
             this.Text = "Welcome";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Welcome_FormClosing);
             this.Load += new System.EventHandler(this.Welcome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.facebookPictureBox)).EndInit();
             this.ResumeLayout(false);

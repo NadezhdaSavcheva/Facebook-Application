@@ -51,7 +51,6 @@ namespace Facebook.Views
             this.facebookLoginPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.facebookLoginPictureBox.TabIndex = 0;
             this.facebookLoginPictureBox.TabStop = false;
-            this.facebookLoginPictureBox.Click += new System.EventHandler(this.facebookLoginPictureBox_Click);
             // 
             // emailLoginTextBox
             // 
@@ -147,6 +146,7 @@ namespace Facebook.Views
             this.MinimumSize = new System.Drawing.Size(646, 509);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.facebookLoginPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

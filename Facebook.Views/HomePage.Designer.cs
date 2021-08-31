@@ -41,12 +41,33 @@ namespace Facebook.Views
             this.groupsButton = new System.Windows.Forms.Button();
             this.eventsButton = new System.Windows.Forms.Button();
             this.friendsButton = new System.Windows.Forms.Button();
-            this.postsListView = new System.Windows.Forms.ListView();
+            this.postPictureBox1 = new System.Windows.Forms.PictureBox();
+            this.postPictureBox2 = new System.Windows.Forms.PictureBox();
+            this.postPictureBox3 = new System.Windows.Forms.PictureBox();
+            this.postPictureBox4 = new System.Windows.Forms.PictureBox();
+            this.authorNameLabel4 = new System.Windows.Forms.Label();
+            this.authorNameLabel3 = new System.Windows.Forms.Label();
+            this.authorNameLabel2 = new System.Windows.Forms.Label();
+            this.authorNameLabel1 = new System.Windows.Forms.Label();
+            this.authorPictureBox4 = new System.Windows.Forms.PictureBox();
+            this.authorPictureBox2 = new System.Windows.Forms.PictureBox();
+            this.authorPictureBox3 = new System.Windows.Forms.PictureBox();
+            this.authorPictureBox1 = new System.Windows.Forms.PictureBox();
+            this.nextPageButton = new System.Windows.Forms.Button();
+            this.previousPageButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.facebookHomePageLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileIconImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsIconImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsIconImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsIconImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postPictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postPictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postPictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorPictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorPictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorPictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // facebookHomePageLogo
@@ -113,7 +134,6 @@ namespace Facebook.Views
             this.friendsIconImage.Size = new System.Drawing.Size(40, 40);
             this.friendsIconImage.TabIndex = 6;
             this.friendsIconImage.TabStop = false;
-            this.friendsIconImage.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // profileButton
             // 
@@ -167,14 +187,131 @@ namespace Facebook.Views
             this.friendsButton.UseVisualStyleBackColor = false;
             this.friendsButton.Click += new System.EventHandler(this.friendsButton_Click);
             // 
-            // postsListView
+            // postPictureBox1
             // 
-            this.postsListView.HideSelection = false;
-            this.postsListView.Location = new System.Drawing.Point(24, 101);
-            this.postsListView.Name = "postsListView";
-            this.postsListView.Size = new System.Drawing.Size(746, 403);
-            this.postsListView.TabIndex = 11;
-            this.postsListView.UseCompatibleStateImageBehavior = false;
+            this.postPictureBox1.Location = new System.Drawing.Point(87, 154);
+            this.postPictureBox1.Name = "postPictureBox1";
+            this.postPictureBox1.Size = new System.Drawing.Size(240, 129);
+            this.postPictureBox1.TabIndex = 11;
+            this.postPictureBox1.TabStop = false;
+            // 
+            // postPictureBox2
+            // 
+            this.postPictureBox2.Location = new System.Drawing.Point(469, 154);
+            this.postPictureBox2.Name = "postPictureBox2";
+            this.postPictureBox2.Size = new System.Drawing.Size(240, 129);
+            this.postPictureBox2.TabIndex = 12;
+            this.postPictureBox2.TabStop = false;
+            // 
+            // postPictureBox3
+            // 
+            this.postPictureBox3.Location = new System.Drawing.Point(87, 375);
+            this.postPictureBox3.Name = "postPictureBox3";
+            this.postPictureBox3.Size = new System.Drawing.Size(240, 129);
+            this.postPictureBox3.TabIndex = 13;
+            this.postPictureBox3.TabStop = false;
+            // 
+            // postPictureBox4
+            // 
+            this.postPictureBox4.Location = new System.Drawing.Point(469, 375);
+            this.postPictureBox4.Name = "postPictureBox4";
+            this.postPictureBox4.Size = new System.Drawing.Size(240, 129);
+            this.postPictureBox4.TabIndex = 14;
+            this.postPictureBox4.TabStop = false;
+            // 
+            // authorNameLabel4
+            // 
+            this.authorNameLabel4.AutoSize = true;
+            this.authorNameLabel4.Location = new System.Drawing.Point(515, 339);
+            this.authorNameLabel4.Name = "authorNameLabel4";
+            this.authorNameLabel4.Size = new System.Drawing.Size(148, 20);
+            this.authorNameLabel4.TabIndex = 25;
+            this.authorNameLabel4.Text = "First name Last name";
+            // 
+            // authorNameLabel3
+            // 
+            this.authorNameLabel3.AutoSize = true;
+            this.authorNameLabel3.Location = new System.Drawing.Point(133, 339);
+            this.authorNameLabel3.Name = "authorNameLabel3";
+            this.authorNameLabel3.Size = new System.Drawing.Size(148, 20);
+            this.authorNameLabel3.TabIndex = 26;
+            this.authorNameLabel3.Text = "First name Last name";
+            // 
+            // authorNameLabel2
+            // 
+            this.authorNameLabel2.AutoSize = true;
+            this.authorNameLabel2.Location = new System.Drawing.Point(515, 118);
+            this.authorNameLabel2.Name = "authorNameLabel2";
+            this.authorNameLabel2.Size = new System.Drawing.Size(148, 20);
+            this.authorNameLabel2.TabIndex = 27;
+            this.authorNameLabel2.Text = "First name Last name";
+            // 
+            // authorNameLabel1
+            // 
+            this.authorNameLabel1.AutoSize = true;
+            this.authorNameLabel1.Location = new System.Drawing.Point(133, 118);
+            this.authorNameLabel1.Name = "authorNameLabel1";
+            this.authorNameLabel1.Size = new System.Drawing.Size(148, 20);
+            this.authorNameLabel1.TabIndex = 28;
+            this.authorNameLabel1.Text = "First name Last name";
+            // 
+            // authorPictureBox4
+            // 
+            this.authorPictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("authorPictureBox4.Image")));
+            this.authorPictureBox4.Location = new System.Drawing.Point(469, 329);
+            this.authorPictureBox4.Name = "authorPictureBox4";
+            this.authorPictureBox4.Size = new System.Drawing.Size(40, 40);
+            this.authorPictureBox4.TabIndex = 29;
+            this.authorPictureBox4.TabStop = false;
+            // 
+            // authorPictureBox2
+            // 
+            this.authorPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("authorPictureBox2.Image")));
+            this.authorPictureBox2.Location = new System.Drawing.Point(469, 108);
+            this.authorPictureBox2.Name = "authorPictureBox2";
+            this.authorPictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.authorPictureBox2.TabIndex = 30;
+            this.authorPictureBox2.TabStop = false;
+            // 
+            // authorPictureBox3
+            // 
+            this.authorPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("authorPictureBox3.Image")));
+            this.authorPictureBox3.Location = new System.Drawing.Point(87, 329);
+            this.authorPictureBox3.Name = "authorPictureBox3";
+            this.authorPictureBox3.Size = new System.Drawing.Size(40, 40);
+            this.authorPictureBox3.TabIndex = 31;
+            this.authorPictureBox3.TabStop = false;
+            // 
+            // authorPictureBox1
+            // 
+            this.authorPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("authorPictureBox1.Image")));
+            this.authorPictureBox1.Location = new System.Drawing.Point(87, 108);
+            this.authorPictureBox1.Name = "authorPictureBox1";
+            this.authorPictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.authorPictureBox1.TabIndex = 32;
+            this.authorPictureBox1.TabStop = false;
+            // 
+            // nextPageButton
+            // 
+            this.nextPageButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.nextPageButton.ForeColor = System.Drawing.Color.White;
+            this.nextPageButton.Location = new System.Drawing.Point(736, 475);
+            this.nextPageButton.Name = "nextPageButton";
+            this.nextPageButton.Size = new System.Drawing.Size(52, 29);
+            this.nextPageButton.TabIndex = 33;
+            this.nextPageButton.Text = ">";
+            this.nextPageButton.UseVisualStyleBackColor = false;
+            // 
+            // previousPageButton
+            // 
+            this.previousPageButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.previousPageButton.ForeColor = System.Drawing.Color.White;
+            this.previousPageButton.Location = new System.Drawing.Point(12, 475);
+            this.previousPageButton.Name = "previousPageButton";
+            this.previousPageButton.Size = new System.Drawing.Size(52, 29);
+            this.previousPageButton.TabIndex = 34;
+            this.previousPageButton.Text = "<";
+            this.previousPageButton.UseVisualStyleBackColor = false;
             // 
             // HomePage
             // 
@@ -182,7 +319,20 @@ namespace Facebook.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 516);
-            this.Controls.Add(this.postsListView);
+            this.Controls.Add(this.previousPageButton);
+            this.Controls.Add(this.nextPageButton);
+            this.Controls.Add(this.authorPictureBox1);
+            this.Controls.Add(this.authorPictureBox3);
+            this.Controls.Add(this.authorPictureBox2);
+            this.Controls.Add(this.authorPictureBox4);
+            this.Controls.Add(this.authorNameLabel1);
+            this.Controls.Add(this.authorNameLabel2);
+            this.Controls.Add(this.authorNameLabel3);
+            this.Controls.Add(this.authorNameLabel4);
+            this.Controls.Add(this.postPictureBox4);
+            this.Controls.Add(this.postPictureBox3);
+            this.Controls.Add(this.postPictureBox2);
+            this.Controls.Add(this.postPictureBox1);
             this.Controls.Add(this.friendsButton);
             this.Controls.Add(this.eventsButton);
             this.Controls.Add(this.groupsButton);
@@ -199,11 +349,20 @@ namespace Facebook.Views
             this.MinimumSize = new System.Drawing.Size(818, 563);
             this.Name = "HomePage";
             this.Text = "HomePage";
+            this.Load += new System.EventHandler(this.HomePage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.facebookHomePageLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileIconImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupsIconImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eventsIconImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.friendsIconImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postPictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorPictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.authorPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +381,19 @@ namespace Facebook.Views
         private System.Windows.Forms.Button groupsButton;
         private System.Windows.Forms.Button eventsButton;
         private System.Windows.Forms.Button friendsButton;
-        private System.Windows.Forms.ListView postsListView;
+        private System.Windows.Forms.PictureBox postPictureBox1;
+        private System.Windows.Forms.PictureBox postPictureBox2;
+        private System.Windows.Forms.PictureBox postPictureBox3;
+        private System.Windows.Forms.PictureBox postPictureBox4;
+        private System.Windows.Forms.Label authorNameLabel4;
+        private System.Windows.Forms.Label authorNameLabel3;
+        private System.Windows.Forms.Label authorNameLabel2;
+        private System.Windows.Forms.Label authorNameLabel1;
+        private System.Windows.Forms.PictureBox authorPictureBox4;
+        private System.Windows.Forms.PictureBox authorPictureBox2;
+        private System.Windows.Forms.PictureBox authorPictureBox3;
+        private System.Windows.Forms.PictureBox authorPictureBox1;
+        private System.Windows.Forms.Button nextPageButton;
+        private System.Windows.Forms.Button previousPageButton;
     }
 }

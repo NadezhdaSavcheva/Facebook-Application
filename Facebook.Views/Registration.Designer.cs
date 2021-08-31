@@ -32,9 +32,9 @@ namespace Facebook.Views
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registration));
             this.registrationLabel = new System.Windows.Forms.Label();
             this.quickAndEasyLabel = new System.Windows.Forms.Label();
-            this.forenameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
-            this.numberTextBox = new System.Windows.Forms.TextBox();
+            this.numberOrEmailTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.dateOfBirthLabel = new System.Windows.Forms.Label();
             this.dateOfBirth = new System.Windows.Forms.DateTimePicker();
@@ -71,13 +71,13 @@ namespace Facebook.Views
             this.quickAndEasyLabel.TabIndex = 1;
             this.quickAndEasyLabel.Text = "It is quick and easy.";
             // 
-            // forenameTextBox
+            // firstNameTextBox
             // 
-            this.forenameTextBox.Location = new System.Drawing.Point(12, 76);
-            this.forenameTextBox.Name = "forenameTextBox";
-            this.forenameTextBox.PlaceholderText = "Forename";
-            this.forenameTextBox.Size = new System.Drawing.Size(170, 27);
-            this.forenameTextBox.TabIndex = 2;
+            this.firstNameTextBox.Location = new System.Drawing.Point(12, 76);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.PlaceholderText = "First name";
+            this.firstNameTextBox.Size = new System.Drawing.Size(170, 27);
+            this.firstNameTextBox.TabIndex = 2;
             // 
             // lastNameTextBox
             // 
@@ -87,13 +87,13 @@ namespace Facebook.Views
             this.lastNameTextBox.Size = new System.Drawing.Size(186, 27);
             this.lastNameTextBox.TabIndex = 3;
             // 
-            // numberTextBox
+            // numberOrEmailTextBox
             // 
-            this.numberTextBox.Location = new System.Drawing.Point(12, 108);
-            this.numberTextBox.Name = "numberTextBox";
-            this.numberTextBox.PlaceholderText = "Mobile number or email";
-            this.numberTextBox.Size = new System.Drawing.Size(371, 27);
-            this.numberTextBox.TabIndex = 4;
+            this.numberOrEmailTextBox.Location = new System.Drawing.Point(12, 108);
+            this.numberOrEmailTextBox.Name = "numberOrEmailTextBox";
+            this.numberOrEmailTextBox.PlaceholderText = "Mobile number or email";
+            this.numberOrEmailTextBox.Size = new System.Drawing.Size(371, 27);
+            this.numberOrEmailTextBox.TabIndex = 4;
             // 
             // passwordTextBox
             // 
@@ -185,7 +185,6 @@ namespace Facebook.Views
             this.maleRadioButton.TabStop = true;
             this.maleRadioButton.Text = "Male";
             this.maleRadioButton.UseVisualStyleBackColor = true;
-            this.maleRadioButton.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // femaleRadioButton
             // 
@@ -226,9 +225,9 @@ namespace Facebook.Views
             this.Controls.Add(this.dateOfBirth);
             this.Controls.Add(this.dateOfBirthLabel);
             this.Controls.Add(this.passwordTextBox);
-            this.Controls.Add(this.numberTextBox);
+            this.Controls.Add(this.numberOrEmailTextBox);
             this.Controls.Add(this.lastNameTextBox);
-            this.Controls.Add(this.forenameTextBox);
+            this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.quickAndEasyLabel);
             this.Controls.Add(this.registrationLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -236,6 +235,7 @@ namespace Facebook.Views
             this.MinimumSize = new System.Drawing.Size(417, 567);
             this.Name = "Registration";
             this.Text = "Registration";
+            this.Load += new System.EventHandler(this.Registration_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,9 +245,9 @@ namespace Facebook.Views
 
         private System.Windows.Forms.Label registrationLabel;
         private System.Windows.Forms.Label quickAndEasyLabel;
-        private System.Windows.Forms.TextBox forenameTextBox;
+        private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.TextBox lastNameTextBox;
-        private System.Windows.Forms.TextBox numberTextBox;
+        private System.Windows.Forms.TextBox numberOrEmailTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label dateOfBirthLabel;
         private System.Windows.Forms.DateTimePicker dateOfBirth;

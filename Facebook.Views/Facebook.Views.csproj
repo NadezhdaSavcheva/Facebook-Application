@@ -13,11 +13,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Facebook.Business\Facebook.Business.csproj" />
     <ProjectReference Include="..\Facebook.Models\Facebook.Models.csproj" />
+    <ProjectReference Include="..\Facebook.Services\Facebook.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,59 +1,93 @@
-﻿using Facebook.Views.Utils;
+﻿using Facebook.Services;
+using Facebook.Services.DAO;
+using Facebook.Services.Models;
+using Facebook.Views.Utils;
 using System;
+using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Facebook.Views
 {
     public partial class Registration : Form
     {
+        private HomeDAO homeDAO;
+        private Regex regexPass;
+        private Regex regexNames;
+
         public Registration()
         {
             InitializeComponent();
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
+            FacebookDBContext context = new FacebookDBContext();
+            this.homeDAO = new HomeDAO(context);
+            this.errorLabel.Visible = false;
         }
 
         private void registrationButton_Click(object sender, EventArgs e)
         {
-            try
-            {
+            regexPass = new Regex("^([a-zA-Z0-9])*$");
+            regexNames = new Regex("^([a-zA-Z])*$");
 
-                if (!PasswordHelper.IsSame(this.passwordTextBox.Text, this.repeatPasswordTextBox.Text))
+            if (regexPass.IsMatch(passwordTextBox.Text))
+            {
+                if (regexNames.IsMatch(firstNameTextBox.Text) && regexNames.IsMatch(lastNameTextBox.Text))
                 {
-                    throw new Exception("Password mismatch.");
+                    try
+                    {
+                        if (!PasswordHelper.IsSame(this.passwordTextBox.Text, this.repeatPasswordTextBox.Text))
+                        {
+                            throw new Exception("Password mismatch.");
+                        }
+
+                        Users newUser = new Users();
+                        newUser.FirstName = firstNameTextBox.Text;
+                        newUser.LastName = lastNameTextBox.Text;
+                        if (numberOrEmailTextBox.Text.Contains('@'))
+                        {
+                            newUser.Email = numberOrEmailTextBox.Text;
+                        }
+                        else
+                        {
+                            newUser.PhoneNumber = numberOrEmailTextBox.Text;
+                        }
+                        newUser.PasswordHash = this.homeDAO.HashPassword(passwordTextBox.Text);
+                        newUser.Birthdate = dateOfBirth.Value;
+                        if (maleRadioButton.Checked == true)
+                        {
+                            newUser.Gender = maleRadioButton.Name;
+                        }
+                        else if (femaleRadioButton.Checked == true)
+                        {
+                            newUser.Gender = femaleRadioButton.Name;
+                        }
+                        else if (otherGenderRadioButton.Checked == true)
+                        {
+                            newUser.Gender = otherGenderRadioButton.Name;
+                        }
+
+                        homeDAO.RegisterUser(newUser);
+
+                        this.Close();
+                        Login loginPage = new Login();
+                        loginPage.Activate();
+                        loginPage.Show();
+                    }
+                    catch (Exception error)
+                    {
+                        Exception ex = new Exception();
+                        MessageBox.Show(ex.ToString());
+                        this.errorLabel.Visible = true;
+                        this.errorLabel.Text = error.Message;
+                    }
                 }
-
-                /*RegistrationViewModel registrationViewModel = new RegistrationViewModel();
-
-				registrationViewModel.FirstName = this.firstNameTextBox.Text;
-				registrationViewModel.LastName = this.lastNameTextBox.Text;
-				registrationViewModel.CountryName = this.countryNameTextBox.Text;
-				registrationViewModel.TownName = this.townNameTextBox.Text;
-				registrationViewModel.RoleName = GetSelectedRole();
-
-				registrationViewModel.Username = this.usernameTextBox.Text;
-				registrationViewModel.Password = PasswordHelper.HashPassword(this.passwordTextBox.Text);
-
-				if (this.villainRoleCheckBox.Checked)
-				{
-					registrationViewModel.EvilnessFactor = this.evilnessFactorTextBox.Text;
-				}
-
-				this.homeController.Register(registrationViewModel);*/
-
-                this.Close();
-                var homePage = FormFactory.GetFormInstance<HomePage>();
-                homePage.Show();
+                else MessageBox.Show("Names only contain symbols from A to Z!");
             }
-            catch (Exception error)
-            {
+            else MessageBox.Show("Password cannot contains special symbols!");
+        }
 
-                this.errorLabel.Visible = true;
-                this.errorLabel.Text = error.Message;
-            }
+        private void Registration_Load(object sender, EventArgs e)
+        {
+            Location = new Point(600, 250);
         }
     }
 }

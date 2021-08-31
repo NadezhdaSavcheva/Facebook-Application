@@ -1,5 +1,4 @@
-﻿using Facebook.Views.Utils;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Facebook.Views
@@ -15,7 +14,7 @@ namespace Facebook.Views
         {
             this.Hide();
 
-            var profile = FormFactory.GetFormInstance<Profile>();
+            Profile profile = new Profile();
             profile.Show();
         }
 

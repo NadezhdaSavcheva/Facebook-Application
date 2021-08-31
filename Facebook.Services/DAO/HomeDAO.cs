@@ -1,6 +1,8 @@
 ﻿using Facebook.Services.Models;
 using System;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Facebook.Services.DAO
 {
@@ -24,20 +26,29 @@ namespace Facebook.Services.DAO
 
             if (emailOrPhoneNumber.Contains('@'))
             {
-                user = this.context.Users.Where(u => u.Email.Equals(emailOrPhoneNumber) && u.PasswordHash.Equals(password)).FirstOrDefault();
+                user = this.context.Users.Where(u => u.Email.Equals(emailOrPhoneNumber) && u.PasswordHash.Equals(HashPassword(password)))
+                                         .FirstOrDefault();
             }
             else
             {
-                user = this.context.Users.Where(u => u.PhoneNumber.Equals(emailOrPhoneNumber) && u.PasswordHash.Equals(password)).FirstOrDefault();
+                user = this.context.Users.Where(u => u.PhoneNumber.Equals(emailOrPhoneNumber) && u.PasswordHash.Equals(HashPassword(password)))
+                                         .FirstOrDefault();
             }
 
             return (Users)user;
         }
 
+        public string HashPassword(string password)
+        {
+            var provider = new SHA1CryptoServiceProvider();
+            var encoding = new UnicodeEncoding();
+            return Convert.ToBase64String(provider.ComputeHash(encoding.GetBytes(password)));
+        }
+
         public void RegisterUser(Users newUser)
         {
-            context.Users.Add(newUser);
-            context.SaveChanges();
+            this.context.Users.Add(newUser);
+            this.context.SaveChanges();
         }
     }
 }
