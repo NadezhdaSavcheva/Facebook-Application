@@ -12,9 +12,10 @@ namespace Facebook.Views
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Facebook.Views.Events.ActiveForm.Close();
 
-            Profile profile = new Profile();
+            Profile profile = new Profile(currentUser, currentProfile);
+            profile.Activate();
             profile.Show();
         }
 
@@ -30,25 +31,28 @@ namespace Facebook.Views
 
         private void homePageButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Facebook.Views.Events.ActiveForm.Close();
 
-            var homePage = FormFactory.GetFormInstance<HomePage>();
+            HomePage homePage = new HomePage(currentUser, currentProfile);
+            homePage.Activate();
             homePage.Show();
         }
 
         private void groupsButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Facebook.Views.Events.ActiveForm.Close();
 
-            var groups = FormFactory.GetFormInstance<Groups>();
+            Groups groups = new Groups();
+            groups.Activate();
             groups.Show();
         }
 
         private void friendsButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Facebook.Views.Events.ActiveForm.Close();
 
-            var friends = FormFactory.GetFormInstance<Friends>();
+            Friends friends = new Friends();
+            friends.Activate();
             friends.Show();
         }
     }

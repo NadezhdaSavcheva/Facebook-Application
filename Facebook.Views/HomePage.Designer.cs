@@ -301,6 +301,7 @@ namespace Facebook.Views
             this.nextPageButton.TabIndex = 33;
             this.nextPageButton.Text = ">";
             this.nextPageButton.UseVisualStyleBackColor = false;
+            this.nextPageButton.Click += new System.EventHandler(this.nextPageButton_Click);
             // 
             // previousPageButton
             // 

@@ -27,7 +27,7 @@ namespace Facebook.Views
         {
             CreatePost.ActiveForm.Close();
 
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(currentUser, currentProfile);
             homePage.Activate();
             homePage.Show();
         }
@@ -67,7 +67,7 @@ namespace Facebook.Views
             postsDAO.CreatePost(newPost);
 
             CreatePost.ActiveForm.Close();
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(currentUser, currentProfile);
             homePage.Activate();
             homePage.Show();
         }

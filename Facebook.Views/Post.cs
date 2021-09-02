@@ -30,7 +30,7 @@ namespace Facebook.Views
         {
             Post.ActiveForm.Close();
 
-            HomePage homePage = new HomePage();
+            HomePage homePage = new HomePage(currentUser, profile);
             homePage.Activate();
             homePage.Show();
         }

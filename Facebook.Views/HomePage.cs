@@ -67,6 +67,26 @@ namespace Facebook.Views
             friends.Show();
         }
 
+        private List<Posts> SearchName()
+        {
+            List<Posts> posts = new List<Posts>();
+            string heading = "";
+            try
+            {
+                heading = searchBoxHomePage.Text;
+                if (searchBoxHomePage.Text == "" || searchBoxHomePage.Text == "Search ...")
+                {
+                    return this.postsDAO.GetAllPosts();
+                }
+                posts = this.postsDAO.SearchByName(heading);
+            }
+            catch
+            {
+                return this.postsDAO.GetAllPosts();
+            }
+            return posts;
+        }
+
         private void HomePage_Load(object sender, EventArgs e)
         {
             Location = new Point(600, 250);
@@ -142,6 +162,11 @@ namespace Facebook.Views
                 authorNameLabel4.Text = "";
                 postPictureBox4.Image = postsDAO.ByteToImage(Resources.no_photo);
             }
+        }
+
+        private void nextPageButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

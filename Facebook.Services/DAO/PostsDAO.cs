@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace Facebook.Services.DAO
 {
@@ -55,7 +54,13 @@ namespace Facebook.Services.DAO
             return this.context.SaveChanges();
         }
 
-        public byte[] ImageToByte(PictureBox img)
+        public static byte[] ImageToByte(Image img)
+        {
+            ImageConverter converter = new ImageConverter();
+            return (byte[])converter.ConvertTo(img, typeof(byte[]));
+        }
+
+        /*public byte[] ImageToByte(PictureBox img)
         {
             ImageConverter converter = new ImageConverter();
             Bitmap bmp = default;
@@ -69,7 +74,7 @@ namespace Facebook.Services.DAO
                 MessageBox.Show("Can't load image!");
             }
             return (byte[])converter.ConvertTo(bmp, typeof(byte[]));
-        }
+        }*/
 
         public Bitmap ByteToImage(byte[] blob)
         {
@@ -90,6 +95,14 @@ namespace Facebook.Services.DAO
         int IPostsDAO.DeletePostById(int postId)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Posts> SearchByName(string name)
+        {
+            List<Posts> posts = new List<Posts>();
+
+            posts.AddRange(this.context.Posts.Where(p => (p.Author.FirstName + " " + p.Author.LastName).Contains(name)));
+            return posts;
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Facebook.Views.Utils;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Facebook.Views
@@ -13,33 +12,37 @@ namespace Facebook.Views
 
         private void homePageButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Groups.ActiveForm.Close();
 
-            var homePage = FormFactory.GetFormInstance<HomePage>();
+            HomePage homePage = new HomePage(currentUser, currentProfile);
+            homePage.Activate();
             homePage.Show();
         }
 
         private void profileButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Groups.ActiveForm.Close();
 
-            var profile = FormFactory.GetFormInstance<Profile>();
+            Profile profile = new Profile(currentUser, currentProfile);
+            profile.Activate();
             profile.Show();
         }
 
         private void eventsButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Groups.ActiveForm.Close();
 
-            var events = FormFactory.GetFormInstance<Events>();
+            Events events = new Events();
+            events.Activate();
             events.Show();
         }
 
         private void friendsButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Groups.ActiveForm.Close();
 
-            var friends = FormFactory.GetFormInstance<Friends>();
+            Friends friends = new Friends();
+            friends.Activate();
             friends.Show();
         }
     }

@@ -24,7 +24,7 @@ namespace Facebook.Views
             if (result != null)
             {
                 Login.ActiveForm.Hide();
-                HomePage homePage = new HomePage();
+                HomePage homePage = new HomePage(this.homeDAO.Login(emailOrPhoneNumber, password), this.homeDAO.Login(emailOrPhoneNumber, password).Profiles);
                 homePage.Activate();
                 homePage.Show();
             }
